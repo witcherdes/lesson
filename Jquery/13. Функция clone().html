@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте абзац с произвольным текстом со свойством display в значении none.
+    Создайте 2 пустых блока <div>.
+    Через jQuery скопируйте текст из 1-го пункта в оба блока <div>.
+------------------------------------->
+<head>
+    <title> Функция clone()</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body onload="cl()">
+<div style="display: none">Произвольный текст</div>
+<script type="text/javascript">
+    function cl() {
+        var d=$("div").clone();
+        var c=$("div").clone();
+        //alert(d.get(0).innerHTML);
+        d.css("display","block");
+        $("body").append(d);
+        c.css("display","block");
+        $("body").append(c);
+    }
+</script>
+</body>
+</html>

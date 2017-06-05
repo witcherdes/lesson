@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте форму с вводом имя, e-mail, текстовая область «Примечание» и кнопки «Отправить».
+    Перед отправкой формы она должна быть проверена на корректность, и если всё хорошо, то отправить её, иначе сообщить обо всех найденных ошибках.
+    Примечание: Данные должны быть получены с помощью jQuery в единую выборку. Дальше они должны быть проверены. Правила корректности данных Вы должны сами обдумать. Подумайте, какой логин будет корректным, а какой нет, то же самое с e-mail и «примечанием».
+------------------------------------->
+<head>
+    <title>Манипулирования с набором элементов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<form>
+    Логин<input type="text" name="login">
+    <br>e-mail<input type="text" name="email">
+    <br>Примечания<textarea name="text"></textarea>
+    <br><input type="button" value="Отправить" onclick="prov()">
+</form>
+<script type="text/javascript">
+    function prov() {
+        /******Получаем массив вида: (name[1]->value[1])********************/
+        var val=$("form").serializeArray();
+        var login=val[0]['value'];
+        var email=val[1]['value'];
+        var text=val[2]['value'];
+        if(login==''){
+            alert("Заполните логин");
+            return false;
+        }
+        if(email==''){
+            alert("Заполните email");
+            return false;
+        }
+        if(text==''){
+            alert("Заполните Примечание");
+            return false;
+        }
+        alert("Все ОК");
+        return true;
+    }
+</script>
+</body>
+</html>

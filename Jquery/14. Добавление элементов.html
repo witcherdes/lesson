@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте 2 абзаца произвольного текста.
+    Добавьте в начало обоих абзацов через jQuery: Здравствуйте!
+    Добавьте к обоим абзацам через jQuery в конец абзаца: <i>С Уважением, Автор!</i>
+------------------------------------->
+<head>
+    <title> Добавление элементов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body onload="dob()">
+<p>Первый абзац.</p>
+<p>Второй абзац.</p>
+<script type="text/javascript">
+    function dob() {
+        var a1=$("p:first");
+        a1.prepend("Здравствуйте! ");
+        a1.append(" <i>С Уважением, Автор!</i>");
+        var a2=$("p:last");
+        a2.prepend("Здравствуйте! ");
+        a2.append(" <i>С Уважением, Автор!</i>");
+    }
+</script>
+</body>
+</html>

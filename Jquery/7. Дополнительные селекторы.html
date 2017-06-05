@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+        Найдите в справочнике селектор, который позволяет получить видимые элементы и невидимые.
+        Создайте 2 видимых блока и 1 невидимый.
+        Через jQuery с помощью селектора из 1-го пункта сделайте видимые блоки невидимыми, а невидимый блок видимым.
+        Убедитесь, что всё работает правильно.
+------------------------------------->
+<head>
+    <title>Дополнительные селекторы</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<div>Блок 1 видимый</div>
+<div>Блок 2 видимый</div>
+<div style="display: none">Блок 3 не видимый</div>
+<input type="button" value="Скрыть/показать" onclick="vis()">
+
+
+<script type="text/javascript">
+       function vis() {
+           var visib=$("div:visible");
+           var invisib=$("div:hidden");
+            for(i=0;i<visib.length;i++){
+                visib.get(i).style.display="none";
+            }
+            for(i=0;i<invisib.length;i++){
+                invisib.get(i).style.display="block";
+            }
+       }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Условные операторы</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<script type="text/javascript">
+		var tires = 3;
+		if (tires == 0) document.write("Шин нет");
+		else document.write("Шины в наличии");
+		
+		document.write("<br />");
+		
+		if (tires == 0) document.write("Шин нет");
+		else {
+			if (tires < 4) document.write("Полного комплекта шин нет");
+			else document.write("Шин достаточно");
+		}
+		document.write("<br />");
+		switch (tires) {
+			case 0:
+				document.write("Шин нет");
+				break;
+			case 1:
+				document.write("В наличии одна шина");
+				break;
+			case 2:
+				document.write("В наличии две шины");
+				break;
+			case 3:
+				document.write("В наличии три шины");
+				break;
+			case 4:
+				document.write("В наличии полный комплект");
+				break;
+			default: document.write("Шин много");
+		}
+	</script>
+</body>
+</html>

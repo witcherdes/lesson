@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!---
+    Создайте форму с текстовым полем, куда пользователь должен будет ввести дату своего рождения в формате ДД.ММ.ГГГГ (например, 25.05.1980).
+    С помощью регулярного выражения корректность ввода.
+    Вычислите и через innerHTML выведите отдельный блок, сколько секунд уже прожил данный человек.
+    Вычислите и через innerHTML выведите отдельный блок, сколько часов уже прожил данный человек.
+    Вычислите и через innerHTML выведите отдельный блок, сколько дней уже прожил данный человек.
+
+    Сделано вычесление прожитых лет
+--->
+    <title>Дата и время</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        function datt() {
+           var dat=document.getElementById("dat").value;
+           var m=dat.match(/^[0-3][0-9]\.[0-1][0-9]\.[0-9][0-9][0-9][0-9]$/);
+           var year1=dat.match(/[0-9][0-9][0-9][0-9]$/);
+           var month1=Number(dat.substring(3,5));
+           var day1=Number(dat.substring(0,2));
+
+           var date=new Date();
+           var year2=date.getFullYear();
+           var rez=year2-year1;
+
+
+
+
+            if(!m){
+                alert("Введите корректные данные");
+            } else {
+                //alert("Вы прожили "+(year2-year1)+" лет");
+                document.getElementById("rez").innerHTML="Вы прожили "+(year2-year1)+" лет";
+            }
+            }
+    </script>
+</head>
+<body>
+<div style="margin: 150px 600px">
+    <h2>Введите дату своего рождения:ДД.ММ.ГГГГ</h2>
+    <form>
+        <input id="dat" type="text" onblur="datt()">
+    </form>
+    <div id="rez"></div>
+</div>
+</body>
+</html>

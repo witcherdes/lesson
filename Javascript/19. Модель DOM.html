@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!---
+
+    Сделать меню.
+    Создайте ссылки «Добавить» и «Удалить» за пределами меню.
+    При нажатии на ссылку «Добавить» в меню должен быть добавлен ещё 1 пункт, причём нумерация должна сохраняться, то есть если была «Ссылка 5», то должна появиться «Ссылка 6».
+    При нажатии на «Удалить» должна удаляться последний пункт в меню.
+    Если удалять уже нечего и пользователь нажал «Удалить», то вывести через alert(): «Уже всё удалено!».
+
+
+--->
+	<title>DOM (Document Object Model)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+		var links = false;
+		function add() {
+			/*************Получаем все дочерние элементы id MENU******************************/
+                var nodelist = document.getElementById("menu").childNodes;
+                links = new Array();
+                var k = 0;
+                /***************Формируем массив всех элементов****************************/
+                for (var i = 0; i < nodelist.length; i++) {
+					/***********Если элемент не типа СПИСОК убираем********************************/
+                    if (nodelist[i] instanceof HTMLLIElement) {
+						/*************Формируем массив списков li******************************/
+                        var li = nodelist[i].childNodes;
+						/************Прогоняем каждый список внутри*******************************/
+                        for (var j = 0; j < li.length; j++) {
+						/**********Если элемент не ссылка <a> то убираем на выходе массив и количество ссылок*********************************/
+                            if (li[j] instanceof HTMLAnchorElement) {
+                                links[k] = li[j];
+                                k++;
+                            }
+                        }
+                    }
+                }
+            k++;
+            /***********Создаем ребенка********************************/
+            var list_item = document.createElement('li');
+            /***********Записываем в него тег ссылки********************************/
+            list_item.innerHTML = '<a href="#">Ссылка '+k+'</a>';
+            /***********Всиавляем в элемент DOM********************************/
+            document.getElementById("menu").appendChild(list_item);
+        }
+        function del() {
+            /***********Выбираем все элементы по селектору********************************/
+            var list = document.querySelector('ul');
+            k=list.children.length;
+            k--;
+            if(k==0){
+                alert("Все элементы удалены");
+			}
+            /***********Убираем последнего потомка********************************/
+            var removed = list.removeChild(list.children[k]);
+            }
+	</script>
+</head>
+<body>
+	<ul id="menu">
+		<li>
+			<a href="#">Ссылка 1</a>
+		</li>
+		<li>
+			<a href="#">Ссылка 2</a>
+		</li>
+		<li>
+			<a href="#">Ссылка 3</a>
+		</li>
+		<li>
+			<a href="#">Ссылка 4</a>
+		</li>
+		<li>
+			<a href="#">Ссылка 5</a>
+		</li>
+	</ul>
+<div>
+	<input type="button" value="Добавить" onclick="add()">
+	<input type="button" value="Удалить" onclick="del()">
+</div>
+</body>
+</html>

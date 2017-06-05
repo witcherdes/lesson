@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Собрать все теги <img> со страницы в массив.
+    Создать массив, в котором будут все src из тегов img, собранных в 1-ом пункте.
+    Вывести массив в alert() с помощью join().
+------------------------------------->
+<head>
+    <title>Регулярные выражения</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+
+</head>
+<body onload="dd()">
+ <img src="1.jpg" alt="1" title="1"/>
+ <img src="2.jpg" alt="2" title="2"/>
+ <img src="3.jpg" alt="3" title="3"/>
+ <img src="4.jpg" alt="4" title="4"/>
+ <img src="5.jpg" alt="5" title="5"/>
+
+    <script type="text/javascript">
+        function dd() {
+            var elements=$("img");
+            var a=[];
+            var b=[];
+            for (i=0;i<elements.length;i++) {
+                a[i]=elements.get(i);
+                b[i]=elements.get(i).src;
+            }
+            /*******Склеиваем все элементы в одну строку*******************/
+            alert(b.join());
+        }
+    </script>
+</body>
+</html>

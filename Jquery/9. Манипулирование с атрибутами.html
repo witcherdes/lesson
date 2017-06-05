@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Добавьте ко всем ссылкам, у которых есть атрибут rel="external", атрибут target="_blank".
+    Проверьте работу скрипта.
+    Примечание: Это практическая задача, цель которой сделать возможность открытия ссылок в новом окне, а также сохранения валидности кода, поскольку атрибут target не поддерживается в XHTML и HTML5.
+------------------------------------->
+<head>
+    <title>Манипулирование с атрибутами</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body onload="atr()">
+<a href="#">Ссылка 1</a>
+<a href="#" rel="external">Ссылка 2</a>
+<a href="#">Ссылка 3</a>
+<a href="#" rel="external">Ссылка 4</a>
+<a href="#" rel="">Ссылка 5</a>
+<script type="text/javascript">
+    function atr() {
+        var att=$("a[rel='external']");
+        for(i=0;i<att.length;i++){
+            att.get(i).target="_blank";
+        }
+    }
+</script>
+</body>
+</html>

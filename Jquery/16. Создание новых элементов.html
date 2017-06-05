@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Сделайте форму с текстовыми полями, отвечающими за ширину, высоту будущего div и его цвет фона (формат ввода: #aabbcc).
+    Добавьте в форму кнопку «Добавить».
+    После нажатия на кнопку «Добавить» на странице должен появиться ниже всех остальных блоков (если таковые были) новый блок с заданной шириной и высотой, а также цветом.
+    Причём больше 5-ти блоков на странице быть не должно. Если вдруг пользователь просит добавить 6-й блок, то вывести ему через тег <p> рядом с формой уведомление: «5 – это максимум!». Безусловно, вывод так же на jQuery.
+------------------------------------->
+<head>
+    <title> Создание новых элементов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<form>
+    <input type="text" id="w" placeholder="Ширина">
+    <input type="text" id="h" placeholder="Высота">
+    <input type="text" id="c" placeholder="Цвет">
+    <input type="button" value="Добавить блок" onclick="dik()">
+</form>
+<script type="text/javascript">
+    function dik() {
+        var max=$("div");
+        if(max.length<5) {
+            var we = $("#w").val();
+            var he = $("#h").val();
+            var c = $("#c").val();
+            var element = $("<div></div>");
+            element.css("width", we + "px");
+            element.css("height", he + "px");
+            element.css("background-color", c);
+            $("body").append(element);
+        } else {
+            var element=$("<p>5 Блоков – это максимум!</p>")
+            $("form").append(element);
+        }
+    }
+</script>
+</body>
+</html>

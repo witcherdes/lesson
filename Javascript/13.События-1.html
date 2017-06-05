@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>События и их обработчики</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+		function handlerClick(button) {
+			//alert("Кликнули");
+			alert("Кликнули по кнопке '" + button.name + "' с надписью '" + button.value + "'");
+		}
+		var counter = 0;
+		function handlerMouseOver(element) {
+			counter++;
+			element.innerHTML = "Сюда навели мышкой " + counter + " раз";
+		}
+	</script>
+</head>
+<body onload="alert('Страница загружается')">
+	<input type="button" name="b" value="Кликни по мне" onclick="handlerClick(this)" />
+	<br />
+	<span onmouseover="handlerMouseOver(this)">Сюда навели мышкой 0 раз</span>
+</body>
+</html>

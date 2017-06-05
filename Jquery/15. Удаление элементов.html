@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Выведите 3 изображения на страницу.
+    Под каждым изображением поместите ссылку «Удалить».
+    При нажатии на ссылку «Удалить» должны исчезнуть: изображение, соответствующее этой ссылке, и сама ссылка «Удалить».
+------------------------------------->
+<head>
+    <title> Удаление элементов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+    <div id="1"><img src="#" alt="1"><a href="#" onclick="destr(1)">Удалить</a></div>
+    <div id="2"><img src="#" alt="2"><a href="#" onclick="destr(2)">Удалить</a></div>
+    <div id="3"><img src="#" alt="3"><a href="#" onclick="destr(3)">Удалить</a></div>
+<script type="text/javascript">
+    function destr(n) {
+        $("#"+n).remove();
+    }
+</script>
+</body>
+</html>

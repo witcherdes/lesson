@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+
+    Создайте пустой блок <div>.
+    Создайте текстовое поле и кнопку «Добавить».
+    При нажатии на кнопку «Добавить» возьмите текст из текстового поля, оберните его тегом <p> и добавьте внутрь <div>.
+    У этого текста через jQuery поставьте красный цвет.
+
+------------------------------------->
+<head>
+    <title> Функции html() и text()</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<div></div>
+<form>
+    <input type="text">
+    <input type="button" value="Добавить" onclick="add()">
+</form>
+<script type="text/javascript">
+    function add() {
+        var text=$('input[type="text"]').val();
+        alert(text);
+        $("div").html("<p style='color: red'>"+text+"</p>");
+    }
+</script>
+</body>
+</html>

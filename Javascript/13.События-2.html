@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>События и их обработчики</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript">
+		function mouseimghover(im) {
+			im.style.width="500px";
+        }
+        function mouseimgout(im) {
+            im.style.width="100px";
+        }
+        var count=0;
+        function moseimclick(im) {
+            if (count%2==0){
+                im.style.width="500px";
+			} else im.style.width="100px";
+			count++;
+        }
+	</script>
+</head>
+<body>
+	<img style="width: 100px;" src="5.jpg" onmouseover="mouseimghover(this)" onmouseout="mouseimgout(this)">
+	<img style="width: 100px;" src="noimg.jpg" onclick="moseimclick(this)" >
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!---
+
+		Подправим для GIT
+    Создайте 3 блока с id: id_1, id_2 и id_3.
+    Создайте текстовое поле, в которое пользователь должен ввести число 1, 2 или 3.
+    Создайте кнопку «Удалить».
+    После нажатия по кнопке «Удалить», спрячьте через hide() в jQuery блок с id=id_введённое_число. Например, если пользователь ввёл 2, то должен исчезнуть блок id_2.
+
+
+--->
+    <title>Функция $( )</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
+    <script>
+        function del() {
+            k=document.getElementById("number").value;
+          // var k= $("#number").value; так не работает
+            alert(k);
+            $('#id_'+k).hide();
+        }
+    </script>
+</head>
+<body>
+    <div id="id_1">Первый блок</div>
+    <div id="id_2">Второй блок</div>
+    <div id="id_3">Третий блок</div>
+    <input type="text" id="number">
+    <input type="button" value="Удалить" onclick="del()">
+</body>
+</html>

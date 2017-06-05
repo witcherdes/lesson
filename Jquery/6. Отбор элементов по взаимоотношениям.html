@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+        Создайте 2 абзаца произвольного текста внутри body.
+        С помощью jQuery извлеките и выведите через alert()первую букву в первом абзаце.
+        Примечание: Не используйте никаких ID или CLASS, а только псевдоэлементы из CSS.
+
+
+        Программа разбивает на абзацы. До буквы не добрался.
+------------------------------------->
+<head>
+    <title>Отбор элементов по взаимоотношениям</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body onload="abz()">
+<p>Первый произвольный текст. Он очень клевый.</p>
+<p>Второй абзац. Он не такой клевый, но за то поэтичный.</p>
+<script type="text/javascript">
+    function abz() {
+        var lit1=$("p:eq(0)");
+        alert(lit1.html());
+        var lit2=$("p:eq(1)");
+        alert(lit2.html());
+    }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!---
+
+    Создайте 3 абзаца (тег <p>) с произвольным текстом.
+    У каждого абзаца должен быть свой уникальный id.
+    Через jQuery получите текст внутри абзаца по случайному id и выведите его в alert().
+
+--->
+    <title>Отбор элементов по id</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript">
+        function ra() {
+            k=Math.floor(Math.random()*3+1);
+            alert($("#id_"+k).html());
+        }
+    </script>
+</head>
+<body onload="ra()">
+<div id="id_1"><p>Первый текст!</p></div>
+<div id="id_2"><p>Второй текст!</p></div>
+<div id="id_3"><p>Третий текст текст!</p></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--- Создайте форму с текстовым полем для ввода числа и выпадающим списком из 2-х значений: sin и cos. Также добавьте кнопку «Рассчитать». Создайте функцию, которая вызывается по нажатию кнопки «Рассчитать» и рассчитывает sin или cos (в зависимости от выбранного элемента в выпадающем списке) с учётом того, что пользователь вводил градусы, а не радианы.--->
+    <title>Математика</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript">
+        function ma() {
+            g=document.getElementById("grad").value;
+            r=g*Math.PI/180;
+           if(document.getElementById("mathfunck").value=="sin"){
+               alert("sin "+g+"="+Math.sin(r));
+               document.getElementById("rez").innerHTML="sin "+g+"="+Math.sin(r);
+           } else if(document.getElementById("mathfunck").value=="cos"){
+               alert("cos "+g+"="+Math.cos(r));
+               document.getElementById("rez").innerHTML="cos "+g+"="+Math.cos(r);
+           }
+        }
+    </script>
+</head>
+<body>
+<div style="margin: 150px 600px">
+    <form>
+        <select id="mathfunck">
+            <option>sin</option>
+            <option>cos</option>
+        </select>
+        <input id="grad" type="text">
+        <input type="button" value="Рассчитать" onclick="ma()">
+    </form>
+    <div id="rez"style="font-size: 18px"></div>
+</div>
+</body>
+</html>

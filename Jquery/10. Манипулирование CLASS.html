@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Прочитайте в справочнике про метод addClass().
+    Создайте класс, в котором укажите border: 5px solid #f00;
+    Создайте 3 блока с текстом.
+    Добавьте ко всем блокам класс из 2-го пункта с помощью метода из 1-го пункта.
+    Убедитесь, что у всех блоков появилась рамка.
+------------------------------------->
+<head>
+    <title>Манипулирование CLASS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <style>
+        .bor{
+            border: 5px solid #f00;
+        }
+    </style>
+</head>
+<body onload="col()">
+    <div>Блок 1</div>
+    <div>Блок 2</div>
+    <div>Блок 3</div>
+<script type="text/javascript">
+    function col() {
+        $("div").addClass("bor");
+    }
+
+
+</script>
+</body>
+</html>

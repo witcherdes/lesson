@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Операторы цикла</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<script type="text/javascript">
+		for (var i = 0; i < 10; i++) {
+			document.write("Hello ");
+		}
+		
+		document.write("<br />");
+		for (var i = 0; i < 10; i++)
+			document.write("Hello ");
+			
+		document.write("<br />");
+		for (var i = 0; i < 10; i += 2) {
+			document.write("Hello ");
+			document.write(i + " ");
+		}
+		
+		document.write("<br />");
+		for (var i = 0; i < 10; i += 2)
+			document.write("Hello ");
+			document.write(i + " ");
+		
+		var i = 1;
+		var summa = 0;
+		while (i <= 100) {
+			summa += i;
+			i++;
+		}
+		document.write("<br />");
+		document.write("Сумма чисел от 1 до 100 = " + summa);
+		
+		i = 1000;
+		do {
+			document.write("<br />Мы в цикле");
+		} while (i < 100);
+		
+		while (i < 100) {
+			document.write("<br />Мы в цикле");
+		}
+		
+		document.write("<br />");
+		for (var i = 0; i < 10; i++) {
+			if ((i % 3 == 0) && (i != 0)) continue;
+			if (i == 8) break;
+			document.write(i + " ");
+		}
+		
+	</script>
+</body>
+</html>
