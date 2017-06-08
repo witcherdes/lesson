@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте PHP-скрипт, который возвращает массив array([0] => array("name" => "Вася", "comment" => "мой комментарий"), [1] => ("name=" => "Петя", "comment" => "а это мой комментарий")).
+    Создайте ссылку на странице «Получить комментарии».
+    После нажатия на ссылку из 2-го пункта должны быть подгружены комментарии из скрипта в 1-ом пункте.
+    После подгрузки комментариев они должны быть выведены в следующем формате: <p><b>Имя_комментатора:</b> текст_комментария</p>
+------------------------------------->
+<head>
+    <title> Формат JSON </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#comment").bind("click",function () {
+            $.post("2.php",{na:1},function (data){
+               data=JSON.parse(data);
+               for (var id in data){
+                       $("div").append("<br><p><b>" + data[id]["name"] + ": </b>" + data[id]["comment"] + "</p>");
+               }
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+    <div><a href="#" id="comment">Получить комментарий</a> </div>
+</body>
+</html>

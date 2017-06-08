@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте скрипт, проверяющий занятость логина. Допустим логин «admin» занят, а остальные свободные.
+    Создайте форму для ввода логина.
+    При потере фокуса с поля ввода логина значение, введённое пользователем, должно быть отправлено на проверку.
+    Если логин свободен, то справа от текстового поля должно плавно появиться зелёным цветом «Логин свободен».
+    Если логин занят, то справа от текстового поля должно так же плавно появиться красным цветом «Логин занят».
+------------------------------------->
+<head>
+    <title> Формат JSON </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#login").bind("focusout",function () {
+                var t=$("#login").val();
+                $.ajax({
+                    url:"3.php",
+                    type:"POST",
+                    data:({log:t}),
+                    dataType:"html",
+                    success:fun
+                });
+            });
+            function fun(data, d) {
+                $(".lo").empty();
+                $("#login2").append(data);
+            }
+        });
+    </script>
+</head>
+<body>
+    <form style="margin: 50px 400px;">
+        <div style="float: left" id="login2"><input type="text" id="login" name="login" placeholder="Введите логин"></div>
+        <br><br><input type="text" placeholder="Введите пароль">
+        <br><br><input type="text" placeholder="Введите email">
+        <br><br><input type="button" value="Регистрация">
+    </form>
+</body>
+</html>

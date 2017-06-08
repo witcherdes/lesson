@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте текстовое поле, в которое пользователи будут вводить свои имя. Также создайте кнопку «Отправить».
+    После нажатия на кнопку отправить методом POST должно быть отправлено это имя, а возвращаться от скрипта должен ответ
+    «Здравствуйте, указанное_пользователем_имя!».
+    Сделайте ещё раз 2-й пункт, но методом GET.
+------------------------------------->
+<head>
+    <title> Отправка GET и POST запросов </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function privet(dat) {
+            alert(dat);
+        }
+        $(document).ready(function () {
+            $("#but").bind("click",function () {
+                /*Вторым параметром можно передавать несколько значений через запятую*/
+                /*Последний параметр вызывает функцию и передает ей в качесвте аргумента ответ с сервера*/
+                $.post("1.php",{name:$("#name").val()},privet);
+                $.get("1.php",{name:$("#name").val()},privet);
+            });
+        });
+    </script>
+</head>
+<body>
+<form>
+    <input type="text" id="name">
+    <input type="button" id="but" value="Отправить">
+</form>
+</body>
+</html>
