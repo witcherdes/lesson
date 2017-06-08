@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте текстовую область.
+    Создайте 3 абзаца произвольного текста.
+    При двойном клике мыши на абзаце текст из него должен быть скопирован и вставлен в текстовую область.
+    Примечание: Найдите сначала в справочнике событие, отвечающее за двойной клик мыши.
+------------------------------------->
+<head>
+    <title> Пример использования событий</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<input type="text" id="text">
+<p>Первый текст</p>
+<p>Второй текст</p>
+<p>Третий текст</p>
+<script type="text/javascript">
+     $(document).ready(function () {
+         $(document).on("dblclick","p",function (event) {
+             var text=(event.target.innerHTML);
+             $('#text').val(text);
+         });
+     });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+        Создать 3 изображения на странице шириной 100px.
+        Сделать изображения едва заметными (то есть поставить соответствующее значение у свойства opacity).
+        При наведении курсора мыши оно должен стать полностью НЕ прозрачным, причём это должно быть плавно сделано.
+        При клике по изображению оно должно плавно переместиться в центр экрана и увеличиться до ширины в 500px.
+------------------------------------->
+<head>
+    <title> Пользовательская анимация </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+<p><img src="img/5.jpg" style="width: 100px; opacity: 0.2"></p>
+<p><img src="img/6.jpg" style="width: 100px; opacity: 0.2"></p>
+<p><img src="img/2.jpg" style="width: 100px; opacity: 0.2"></p>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("img").bind("mouseover",function (event){    аналог
+        $("img").mouseover(function (event) {
+            //$(event.target).css("opacity","1");
+            $(event.target).animate({opacity:1},1000);
+        });
+        $("img").bind("mouseout",function (event){
+            //$(event.target).css("opacity","0.2");
+            $(event.target).animate({opacity:0.2},1000);
+        });
+        $("img").bind("click",function (event) {
+            $("img").unbind("mouseout");
+            $(event.target).css("opacity","1");
+            $(event.target).parent().css("text-align","center");
+            $(event.target).animate({width:500},3000);
+            $(event.target).bind("click",function (ev) {
+                $(ev.target).animate({width:100},3000);
+                $(ev.target).parent().css("text-align","left");
+                $("img").bind("mouseout",function (event){
+                    //$(event.target).css("opacity","0.2");
+                    $(event.target).animate({opacity:0.2},1000);
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

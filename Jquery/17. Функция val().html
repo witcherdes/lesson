@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте форму с двумя радиокнопками (например, пол «Мужской» и «Женский»), с элементом checkbox и текстовой областью, а также кнопкой «Проверить».
+    Получите все данные из формы после нажатия на кнопку «Проверить» и выведите их на страницу в отдельный блок div (который создайте через тот же jQuery).
+    Примечание: Данные нужно получить с использованием функции val().
+------------------------------------->
+<head>
+    <title> Функция val()</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<form>
+    <input type="text" name="text">
+    <input type="radio" name="sex" value="male" checked>Мужчина
+    <input type="radio" name="sex" value="female" >Женщина
+    <input type="checkbox" value="flag">Тык или не тык
+    <input type="button" value="Проверить" onclick="prov()">
+</form>
+<script type="text/javascript">
+    function prov() {
+        var sex=$("input[name='sex']:checked").val();
+        var text=$("input[type='text']").val();
+        var chek=$("input[type='checkbox']");
+        if (chek.is(':checked')){
+            $("body").append("<div>"+sex+text+chek.val()+"</div>");
+        } else {
+            $("body").append("<div>"+sex+text+"</div>");
+        }
+    }
+</script>
+</body>
+</html>

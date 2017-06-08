@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-------------------------------------
+    Создайте 2 любых изображения на странице с шириной 100px.
+    При клике на любое из них оно должно увеличиться до 500px и оказаться в центре экрана (миниатюра должна остаться на том же месте, то есть как бы должно появиться второе изображение).
+    При повторном клике по появившемуся большому изображению, оно должно исчезнуть.
+    Примечание: Размеры и положение задаются через свойства CSS, а указывать их нужно в jQuery.
+------------------------------------->
+<head>
+    <title> Установка обработчика события</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="18. style.css"/>
+    <script src="jquery-1.9.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("img").bind("click",resize);
+        });
+        function resize(event) {
+            var im=event.target.src;
+            $("body").append("<div class='bl'>"+ "<div id='zatemnen'></div>"+ "<img class='img' src="+im+">"+"</div>");
+            $(".bl").fadeIn(1000);
+            $(".img").click(function () {
+                $(".bl").hide(1000,function () {
+                    $(".bl").remove();
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+<img src="img/5.jpg" style="width: 100px;" class="im">
+<img src="img/6.jpg" style="width: 100px;" class="im">
+</body>
+</html>
